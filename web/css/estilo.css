@@ -1,0 +1,407 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header {
+    background-color: #35A300;
+    height: 15vh;
+    background-position: center center;
+    background-size: cover;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.contenedor {
+    margin: 0 auto;
+    max-width: 120rem;
+}
+
+.section {
+    margin-top: 2rem;
+}
+
+
+/**************** LOGIN *****************/
+
+.contenedor-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #478A0C;
+    color: white;
+    padding: 2rem;
+    width: 40rem;
+}
+
+.login-header h3 {
+    margin-top: 0;
+}
+
+.login-content .box input {
+    max-width: 20rem;
+    width: 20rem;
+}
+
+.login-content .box label {
+    max-width: 8rem;
+    width: 8rem;
+}
+
+.login-footer .btn{
+    padding: 1rem 3rem; 
+}
+
+
+
+/******* NUEVOS USUARIOS *********/
+
+.contenedor-nuevo {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/*.contenido-nuevo form h4::before {
+    content: "";
+    display: block;
+    background-image: url("https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png");
+    background-position: center center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}*/
+
+.contenedor-nuevo {
+    border: 2px solid #72E23C ;
+    max-width: 500px;
+    width: 500px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contenido-nuevo .box {
+    margin-bottom: 2rem;
+}
+
+.contenido-nuevo h4 {
+    margin-top: 0;
+}
+
+.contenido-nuevo .box input[type=radio] {
+    margin-left: 2rem;
+}
+
+.contenedor-nuevo h4::after {
+    content: "";
+    display: block;
+    background-color: #35A300;
+    width: 140px;
+    height: 5px;
+}
+
+.footer-nuevo .btn {
+    margin-top: 1.2rem;
+    padding: 1rem 3rem;
+}
+
+
+
+
+ 
+
+
+/************* HEADER ************/
+
+.contenedor-header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.contenedor-header h3 {
+    margin: 0;
+    padding: 2rem 0;
+}
+
+.barra {
+    display: flex;
+    list-style-type: none;
+}
+
+.barra li {
+    display: flex;
+    align-items: center;
+}
+
+.barra li a{
+    margin-right: 2.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.barra img {
+    margin-right: .7rem;
+    width: 32px;
+    height: 32px;
+}
+
+
+
+
+
+/********** MIS LECTURAS **********/
+
+#tabla_lecturas {
+    width: 120rem;
+}
+
+#tabla_lecturas td, th {
+    padding: .5rem;
+    
+}
+
+#tabla_lecturas tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.contenedor-lecturas button{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.botones-lecturas {
+    display: grid;
+    grid-template-columns: 10% 10%;
+    column-gap: 2rem;
+}
+
+
+
+/********* INDICE ************/
+
+.contenedor-indice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120rem;
+}
+
+.contenedor-indice .btn{
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
+/*** CONTENEDORES ****/
+
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 34rem;
+}
+
+.box img {
+    width: 12px;
+    height: 12px;
+    margin-left: .5rem;
+}
+
+.box label {
+    display: inline-block;
+    width: 20rem;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+
+.box input[type=number] {
+   width: 65px;
+   max-width: 65px;
+   border-radius: 2rem;
+   border: 1px solid grey;
+   text-align: center;
+}
+
+
+
+
+
+
+
+/********* MODIFICAR ***********/
+
+
+.contenedor-modificar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120rem;
+}
+
+.contenedor-modificar .box {
+    margin-bottom: 2rem;
+}
+
+.modificar-botones .btn {
+    padding: .7rem .3rem;
+    flex-basis: calc(33.3% - 1rem);
+}
+
+
+
+
+/******* VISTA TABLA ***********/
+
+
+table, th, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+}
+
+td {
+    padding: 0 15px;
+    width: 300px;
+}
+
+span {
+    font-weight: 700;
+}
+
+
+/*************** COOKIES ***************/
+
+.contenedor-anterior {
+    width: 100%;
+    height: 23vh;
+    background-color: #72E23C;
+    padding: 1rem 1rem;
+}
+
+.contenido-anterior h3{
+    margin: 0;
+}
+
+.anterior-texto {
+    display: grid;
+    list-style-type: none;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon img {
+    width: 32px;
+    height: 32px;
+ }
+
+
+
+
+
+/********* UTILIDADES **********/
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+label {
+    font-weight: 700;
+}
+
+.modificar-botones {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.btn, .btn a{
+    color: white;
+    text-decoration: none;
+    border: 0;
+}
+
+
+.btn-dark {
+    background-color: #4AE300;
+}
+
+.btn-grey {
+    background-color: #81F916;
+}
+
+.btn-dd {
+    background-color: #70CB00;
+}
+
+.btn-rojo {
+    background-color: #DB0000;
+}
+
+.error {
+    color: #fff;
+}
+
+.error-f {
+   
+    display: inline-block;
+    color: red;
+    margin-top: 0;   
+}
+
+.vacio {
+    width: 340px;
+    max-width: 340px;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    padding: .5rem 1.3rem;
+}
+
+.btn-icon img {
+    width: 32px;
+    height: 32px;
+    padding: .4rem;
+}
+
+
+
+
+
+
+
+
+
+
