@@ -1,69 +1,66 @@
 function eliminarLectura(id_lectura) {
-    
+
     var xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText) {
-                alert("Registro eliminado con exito");
-                window.location.href = window.location.href;
-            } 
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            alert("Registro eliminado con exito");
+            window.location.href = window.location.href;
+
         }
     }
 
-    xhttp.open("GET", "eliminarLectura.php?id_lectura="+id_lectura, true);
+    xhttp.open("GET", "eliminarLectura.php?id_lectura=" + id_lectura, true);
     xhttp.send();
 }
 
 
-function cargarXML(url, cFunction) {
+function cargar(url, cFunction) {
 
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200) {
-            cFunction(this);
+    $.ajax({
+        type: "POST",
+        url: url,
+        complete: function (xhr) {
+            cFunction(xhr);
         }
-    }
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    })
 
 }
 
 
-function datosPersona(xhttp) {
-    document.getElementById("nombre_persona").innerHTML = xhttp.responseText;
+function datosPersona(xhr) {
+    $("#nombre_persona").text(xhr.responseText);
 }
 
 
-function cargarLecturas(xhttp) {
-    document.getElementById("tabla_lecturas").innerHTML = xhttp.responseText;
+function cargarLecturas(xhr) {
+    $("#tabla_lecturas").html(xhr.responseText);
 }
 
 
-function clasificarPersona(xhttp) {
-    
- 
-    var imc = document.getElementById("clasi").innerHTML = xhttp.responseText
+function clasificarPersona(xhr) {
 
+
+    $("#clasi").text(xhr.responseText);
+    var imc = $("#clasi").text();
 
     if (imc < 16.00) {
-        document.getElementById("clasificacion_1").style.backgroundColor = "#A4F8F8";
-    } else if (imc  >= 16.00 && imc  <= 16.99) {
-        document.getElementById("clasificacion_2").style.backgroundColor = "#A4F8F8";
-    } else if (imc  >= 17.00 && imc  <= 18.49) {
-        document.getElementById("clasificacion_3").style.backgroundColor = "#A4F8F8";
+        $("#clasificacion_1").css("background-color", "#A4F8F8");
+    } else if (imc >= 16.00 && imc <= 16.99) {
+        $("#clasificacion_2").css("background-color", "#A4F8F8");
+    } else if (imc >= 17.00 && imc <= 18.49) {
+        $("#clasificacion_3").css("background-color", "#A4F8F8");
     } else if (imc >= 18.50 && imc <= 24.99) {
-        document.getElementById("clasificacion_4").style.backgroundColor = "#A4F8F8";
+        $("#clasificacion_4").css("background-color", "#A4F8F8");
     } else if (imc >= 25 && imc <= 29.99) {
-        document.getElementById("clasificacion_5").style.backgroundColor = "#A4F8F8";
+        $("#clasificacion_5").css("background-color", "#A4F8F8");
     } else if (imc >= 30 && imc <= 34.99) {
-        document.getElementById("clasificacion_6").style.backgroundColor = "#A4F8F8";
+        $("#clasificacion_6").css("background-color", "#A4F8F8");
     } else if (imc >= 35 && imc <= 39.99) {
-        document.getElementById("clasificacion_7").style.backgroundColor = "#A4F8F8";
+        $("#clasificacion_7").css("background-color", "#A4F8F8");
     } else if (imc >= 40) {
-        document.getElementById("clasificacion_8").style.backgroundColor = "#A4F8F8";
+        $("#clasificacion_8").css("background-color", "#A4F8F8");
     }
 
 }

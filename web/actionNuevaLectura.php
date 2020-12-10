@@ -13,8 +13,6 @@ $peso = $_POST["peso_kg"];
 $altura = $_POST["estatura_mt"];
 $genero = $_POST["genero"];
 $nivel_actividad = $_POST["nivel_actividad"];
-
-
 $fecha_nacimiento = $cliente->buscarPersona($rut)[0][8];
 
 

@@ -31,7 +31,7 @@ $clasificacion = (isset($_COOKIE[$_SESSION["rut_s"] . "/clasificacion"])) ? $_CO
     <script type="text/javascript" src="js/cargar.js"></script>
 </head>
 
-<body onload="cargarXML('datosPersona.php', datosPersona);">
+<body onload="cargar('datosPersona.php', datosPersona);">
 
     <header>
         <div class="contenedor contenedor-header">

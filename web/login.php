@@ -13,6 +13,7 @@ if (isset($_REQUEST["existe"])) {
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="author" content="Jorge Valdes" />
     <title>Login Salud</title>
     <link rel="stylesheet" type="text/css" href="jquery/jquery-ui-1.12.1.custom/jquery-ui.css" />
     <script type="text/javascript" src="jquery/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>

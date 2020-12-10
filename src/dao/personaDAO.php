@@ -22,11 +22,11 @@ class personaDAO extends Connection
 
             $persona = $stmt->fetchAll();
 
-            foreach($persona as $datos) {
-               if($datos["correo"] == $correo) {
-                   return true;
-                   break;
-               }
+            foreach ($persona as $datos) {
+                if ($datos["correo"] == $correo) {
+                    return true;
+                    break;
+                }
             }
 
             return $persona;
@@ -87,31 +87,6 @@ class personaDAO extends Connection
 
 
 
-    function actualizarPersona($persona)
-    {
-
-        try {
-
-            $conn = $this->conectar();
-
-            $sql = "UPDATE persona SET peso=?, altura=? WHERE rut=?";
-
-            $stmt = $conn->prepare($sql);
-            $stmt->bindValue(1, $persona->getPeso());
-            $stmt->bindValue(2, $persona->getAltura());
-            $stmt->bindValue(3, $persona->getRut());
-
-            $stmt->execute();
-
-            return true;
-        } catch (PDOException $e) {
-            echo "!Error! " . $e->getMessage();
-        }
-
-        $conn = null;
-    }
-
-
     function nuevoUsuario($persona)
     {
 
@@ -134,9 +109,8 @@ class personaDAO extends Connection
             $stmt->bindValue(9, $persona->getFechaNacimiento());
 
             $stmt->execute();
-            
-            return true;
 
+            return true;
         } catch (PDOException $e) {
             echo "!Error! " . $e->getMessage();
         }
@@ -170,22 +144,23 @@ class personaDAO extends Connection
     }
 
 
-    function buscarLecturas($rut)
+    function actualizarPersona($persona)
     {
 
         try {
 
             $conn = $this->conectar();
 
-            $sql = "SELECT * FROM lectura WHERE rut_persona=? ORDER BY id_lectura DESC";
+            $sql = "UPDATE persona SET peso=?, altura=? WHERE rut=?";
 
             $stmt = $conn->prepare($sql);
-            $stmt->bindValue(1, $rut);
+            $stmt->bindValue(1, $persona->getPeso());
+            $stmt->bindValue(2, $persona->getAltura());
+            $stmt->bindValue(3, $persona->getRut());
+
             $stmt->execute();
 
-            $lectura = $stmt->fetchAll();
-
-            return $lectura;
+            return true;
         } catch (PDOException $e) {
             echo "!Error! " . $e->getMessage();
         }
@@ -194,6 +169,8 @@ class personaDAO extends Connection
     }
 
 
+
+    ////////////// LECTURAS ///////////////
 
     function nuevaLectura($lectura)
     {
@@ -212,6 +189,29 @@ class personaDAO extends Connection
             $stmt->execute();
 
             return true;
+        } catch (PDOException $e) {
+            echo "!Error! " . $e->getMessage();
+        }
+
+        $conn = null;
+    }
+
+    function buscarLecturas($rut)
+    {
+
+        try {
+
+            $conn = $this->conectar();
+
+            $sql = "SELECT * FROM lectura WHERE rut_persona=? ORDER BY id_lectura DESC";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(1, $rut);
+            $stmt->execute();
+
+            $lectura = $stmt->fetchAll();
+
+            return $lectura;
         } catch (PDOException $e) {
             echo "!Error! " . $e->getMessage();
         }

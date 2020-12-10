@@ -16,16 +16,16 @@ if (!isset($_SESSION["rut_s"])) {
 <head>
     <meta charset="utf-8" />
     <title>Tu IMC es</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
-    <script type="text/javascript" src="js/codigo_tabla.js"></script>
     <script type="text/javascript" src="js/cargar.js"></script>
 
 </head>
 
 
-<body onload="cargarXML('datosPersona.php?', datosPersona);
-    cargarXML('clasificarPersona.php', clasificarPersona)">
+<body onload="cargar('datosPersona.php', datosPersona);
+    cargar('clasificarPersona.php', clasificarPersona)">
 
     <header>
         <div class="contenedor contenedor-header">

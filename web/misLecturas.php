@@ -15,12 +15,13 @@ if (!isset($_SESSION["rut_s"])) {
 <head>
     <meta charset="UTF-8" />
     <title>Mis lecturas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <script type="text/javascript" src="js/cargar.js"></script>
 </head>
 
-<body class="lecturas" onload="cargarXML('cargarLecturas.php', cargarLecturas)">
+<body class="lecturas" onload="cargar('cargarLecturas.php', cargarLecturas)">
 
     <header>
         <div class="contenedor contenedor-header">
