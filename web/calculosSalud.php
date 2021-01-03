@@ -21,13 +21,6 @@ function calcularTmb($persona)
    
     $edad = $persona->calcularEdad();
 
-    /* Se hace una pequenia correccion a la formula para calcular
-        la tasa de metabolismo basal $tmb ya que la entregada en el pdf
-        corresponde a la nueva version por Miffin-St.Jeor, pero los factores a multiplicar
-        corresponden a la de harris-benedict entonces he optado por usar la de harris a pesar
-        de que es antigua se ajusta mejor a mi tabla de actividad fisica */
-
-
     // Version Miffin-St.Jeor 
     // Hombre: $tmb = (10 * $peso) + (6.25 * $estatura_cm) - (5 * $edad) + 5;
     // Mujer: $tmb = (10 * $peso) + (6.25 * $estatura_cm) - (5 * $edad) - 161;

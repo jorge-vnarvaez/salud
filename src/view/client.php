@@ -35,7 +35,6 @@ class Client
 
     function nuevoUsuario($persona)
     {
-
         return $this->personaDAO->nuevoUsuario($persona);
     }
 

@@ -21,7 +21,8 @@ if (!isset($_SESSION["rut_s"])) {
     <script type="text/javascript" src="js/cargar.js"></script>
 </head>
 
-<body class="lecturas" onload="cargar('cargarLecturas.php', cargarLecturas)">
+<!-- Aqui se cargan las lecturas -->
+<body class="lecturas">
 
     <header>
         <div class="contenedor contenedor-header">
@@ -42,6 +43,7 @@ if (!isset($_SESSION["rut_s"])) {
 
     <section class="section">
         <div class="contenedor contenedor-lecturas">
+
             <div class="botones-lecturas">
                 <button type="button" class="btn btn-dark btn-icon">
                     <img src="../web/img/home.png" />
@@ -53,18 +55,15 @@ if (!isset($_SESSION["rut_s"])) {
                 </button>
             </div>
             <table id="tabla_lecturas">
-
+                <tr>
+                    <th>Fecha</th>
+                    <th>IMC</th>
+                    <th>TMB</th>
+                </tr>
 
             </table>
-
-
-
-
         </div>
-
-
     </section>
-
 
 </body>
 

@@ -8,13 +8,18 @@ $id_lectura =  $_REQUEST["id_lectura"];
 
 $cliente = new Client();
 
+$exito = false;
 
-if ($id_lectura == 0) {
-    if($cliente->eliminarTodo($_SESSION['rut_s'])) {
-        echo true;
-    }
-} else {
-    if ($cliente->eliminarLectura($id_lectura)) {
-        echo true;
-    }
+switch($id_lectura) {
+    case 0:
+        $exito = $cliente->eliminarTodo($_SESSION['rut_s']);
+        break;
+    default: 
+        $exito = $cliente->eliminarLectura($id_lectura);
+        break;
 }
+
+echo $exito;
+
+
+

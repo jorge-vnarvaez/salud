@@ -34,6 +34,6 @@ if ($imc < 16.00) {
 
 setcookie($rut."/clasificacion", $clasificacion, time() + (3600 * 30), "/");
 
-echo $imc;
+echo json_encode($lectura);
 
 

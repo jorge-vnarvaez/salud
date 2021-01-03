@@ -1,8 +1,4 @@
-$("#index").ready(function () {
-
-    $(document).tooltip({
-        position: {my: "left+25px", at: "right"}
-    });
+$(document).ready(function () {
 
     $("#slider_peso").slider({
         min: 20,
@@ -36,10 +32,6 @@ $("#index").ready(function () {
         yearRange: "1947:2018",
         dateFormat: "yy-mm-dd"
     });
-
-  
-
-
 
 })
 

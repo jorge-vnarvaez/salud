@@ -7,16 +7,18 @@ include("../src/utils/connection.php");
 class personaDAO extends Connection
 {
 
+    function __construct() {
+        parent::__construct();
+    }
+
     function existeCorreo($correo)
     {
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "SELECT * FROM persona WHERE correo=?";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $correo);
             $stmt->execute();
 
@@ -34,7 +36,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
 
@@ -43,11 +45,9 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "SELECT * FROM persona WHERE rut=?";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $rut);
             $stmt->execute();
 
@@ -58,7 +58,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
 
@@ -66,11 +66,10 @@ class personaDAO extends Connection
     {
         try {
 
-            $conn = $this->conectar();
 
             $sql = "SELECT * FROM persona WHERE rut=? AND correo=?";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $rut);
             $stmt->bindValue(2, $correo);
             $stmt->execute();
@@ -82,7 +81,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
 
@@ -92,12 +91,10 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "INSERT INTO persona (rut, nombre, direccion, telefono, correo, peso, altura, genero, fecha_nacimiento) 
                     values(?,?,?,?,?,?,?,?,?)";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $persona->getRut());
             $stmt->bindValue(2, $persona->getNombre());
             $stmt->bindValue(3, $persona->getDireccion());
@@ -115,7 +112,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
 
@@ -124,11 +121,9 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "UPDATE persona set direccion=?, telefono=?, correo=? where rut=?";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $persona->getDireccion());
             $stmt->bindValue(2, $persona->getTelefono());
             $stmt->bindValue(3, $persona->getCorreo());
@@ -140,7 +135,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
 
@@ -149,11 +144,9 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "UPDATE persona SET peso=?, altura=? WHERE rut=?";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $persona->getPeso());
             $stmt->bindValue(2, $persona->getAltura());
             $stmt->bindValue(3, $persona->getRut());
@@ -165,7 +158,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
 
@@ -177,11 +170,9 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "INSERT INTO lectura (rut_persona, tmb, imc, fecha) values(?,?,?,?)";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $lectura->getRut());
             $stmt->bindValue(2, $lectura->getTmb());
             $stmt->bindValue(3, $lectura->getImc());
@@ -193,7 +184,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
     function buscarLecturas($rut)
@@ -201,11 +192,9 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "SELECT * FROM lectura WHERE rut_persona=? ORDER BY id_lectura DESC";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $rut);
             $stmt->execute();
 
@@ -216,7 +205,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
     function eliminarLectura($id_lectura)
@@ -224,11 +213,9 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "DELETE FROM lectura WHERE id_lectura=?";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $id_lectura);
             $stmt->execute();
 
@@ -237,7 +224,7 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 
     function eliminarTodo($rut)
@@ -245,11 +232,9 @@ class personaDAO extends Connection
 
         try {
 
-            $conn = $this->conectar();
-
             $sql = "DELETE FROM lectura WHERE rut_persona=?";
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(1, $rut);
             $stmt->execute();
 
@@ -258,6 +243,6 @@ class personaDAO extends Connection
             echo "!Error! " . $e->getMessage();
         }
 
-        $conn = null;
+        $this->conn = null;
     }
 }

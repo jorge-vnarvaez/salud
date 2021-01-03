@@ -7,7 +7,6 @@ if (!isset($_SESSION["rut_s"])) {
     exit();
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +19,10 @@ if (!isset($_SESSION["rut_s"])) {
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <script type="text/javascript" src="js/cargar.js"></script>
-
 </head>
 
-
-<body onload="cargar('datosPersona.php', datosPersona);
-    cargar('clasificarPersona.php', clasificarPersona)">
+<!-- Se esta cargando la funcion clasificar persona y los datos de la persona-->
+<body>
 
     <header>
         <div class="contenedor contenedor-header">

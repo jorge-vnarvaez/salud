@@ -1,3 +1,16 @@
+$(document).ready(function() {
+    // Esta funcion es llamada desde index.php y vistaTabla.php
+    cargar('datosPersona.php', datosPersona);
+
+    // Esta funcion es llamada desde vistaTabla.php
+    cargar('clasificarPersona.php', clasificarPersona);
+
+    //Esta funcion es llamada desde misLecturas.php
+    cargar("cargarLecturas.php", cargarLecturas);
+})
+
+
+
 function eliminarLectura(id_lectura) {
 
     var xhttp = new XMLHttpRequest();
@@ -30,19 +43,43 @@ function cargar(url, cFunction) {
 
 
 function datosPersona(xhr) {
-    $("#nombre_persona").text(xhr.responseText);
+
+    let persona  = JSON.parse(xhr.responseText);
+
+    $("#nombre_persona").text(persona[0].nombre);
 }
 
 
 function cargarLecturas(xhr) {
-    $("#tabla_lecturas").html(xhr.responseText);
+
+    let lecturas = JSON.parse(xhr.responseText);
+
+    let tabla_lecturas = $("#tabla_lecturas");
+
+    lecturas.forEach( lectura => {
+
+        let fila = $("<tr></tr>", {
+            append: [$("<td></td>").text(lectura.fecha),
+                     $("<td></td>").text(lectura.imc),
+                     $("<td></td>").text(lectura.tmb)],
+            click: function() {
+                eliminarLectura(lectura.id_lectura);
+            }
+        });
+
+        fila.appendTo(tabla_lecturas);
+
+    })
+
+   
 }
 
 
 function clasificarPersona(xhr) {
 
+    let lectura = JSON.parse(xhr.responseText);
 
-    $("#clasi").text(xhr.responseText);
+    $("#clasi").text(lectura[0].imc);
     var imc = $("#clasi").text();
 
     if (imc < 16.00) {

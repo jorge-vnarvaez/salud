@@ -9,9 +9,7 @@ if (isset($_REQUEST["errores"])) {
     }
 } 
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html>

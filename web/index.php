@@ -7,11 +7,7 @@ if (!isset($_SESSION["rut_s"])) {
     exit();
 }
 
-
-$peso = (isset($_COOKIE[$_SESSION["rut_s"] . "/peso"])) ? $_COOKIE[$_SESSION["rut_s"] . "/peso"] . "kg" : "No registra";
-$altura = (isset($_COOKIE[$_SESSION["rut_s"] . "/altura"])) ? $_COOKIE[$_SESSION["rut_s"] . "/altura"] . " cm" : "No registra";
-$actividad = (isset($_COOKIE[$_SESSION["rut_s"] . "/actividad"])) ? $_COOKIE[$_SESSION["rut_s"] . "/actividad"]:"No registra";
-$clasificacion = (isset($_COOKIE[$_SESSION["rut_s"] . "/clasificacion"])) ? $_COOKIE[$_SESSION["rut_s"] . "/clasificacion"]:"No registra";
+require("cookies.php");
 
 ?>
 
@@ -31,7 +27,8 @@ $clasificacion = (isset($_COOKIE[$_SESSION["rut_s"] . "/clasificacion"])) ? $_CO
     <script type="text/javascript" src="js/cargar.js"></script>
 </head>
 
-<body onload="cargar('datosPersona.php', datosPersona);">
+<!-- Aqui se cargan los datos de la persona -->
+<body>
 
     <header>
         <div class="contenedor contenedor-header">
@@ -47,13 +44,13 @@ $clasificacion = (isset($_COOKIE[$_SESSION["rut_s"] . "/clasificacion"])) ? $_CO
                 </li>
                 <li>
                     <img src="../web/img/exit.png" />
-                    <a href="cerrarSesion.php">Cierra sesión</a> 
+                    <a href="cerrarSesion.php">Cierra sesión</a>
                 </li>
 
             </ul>
         </div>
 
-    </header>
+    </header><!-- Header, nombre persona y opciones de cuenta -->
 
     <section class="contenedor-anterior">
         <div class="contenedor contenido-anterior">
@@ -87,61 +84,49 @@ $clasificacion = (isset($_COOKIE[$_SESSION["rut_s"] . "/clasificacion"])) ? $_CO
 
             </div>
         </div>
-    </section>
+    </section><!-- Seccion de cookies -->
+
+    <main>
+        <div class="contenedor">
+            <div class="contenedor-indice">
+                <h2>Nueva lectura</h2>
+                <form action="actionNuevaLectura.php" method="post">
+                    <div class="box">
+                        <label for="peso_kg">Peso (Kg.): </label>
+                        <input type="number" name="peso_kg" id="peso_kg" min="20" max="300" step="0.1" required />
+                    </div>
+                    <div id="slider_peso"></div>
 
 
-    <div class="contenedor">
-        <div class="contenedor-indice">
-            <h2>Nueva lectura</h2>
-            <form action="actionNuevaLectura.php" method="post">
-                <div class="box">
-                    <label for="peso_kg">Peso (Kg.): </label>
-                    <input type="number" name="peso_kg" id="peso_kg" min="20" max="300" step="0.1" required />
-                </div>
-                <div id="slider_peso"></div>
+                    <div class="box">
+                        <label for="estatura_mt">Estatura (Mts.): </label>
+                        <input type="number" name="estatura_mt" id="estatura_mt" min="1.0" max="2" step="0.01" required />
+                    </div>
+                    <div id="slider_altura"></div>
 
+                    <div class="box">
+                        <label for="nivel_actividad">Actividad física: </label>
+                    </div>
 
-                <div class="box">
-                    <label for="estatura_mt">Estatura (Mts.): </label>
-                    <input type="number" name="estatura_mt" id="estatura_mt" min="1.0" max="2" step="0.01" required />
-                </div>
-                <div id="slider_altura"></div>
+                    <div class="box">
+                        <select name="nivel_actividad">
+                            <option value="1">Poco o ningún ejercicio</option>
+                            <option value="2">(1 - 3 dias a la semana)</option>
+                            <option value="3">(3 - 5 dias a la semana</option>
+                            <option value="4">(6 - 7 dias a la semana</option>
+                            <option value="5">(2 veces el día)</option>
+                        </select>
+                    </div>
 
+                    <button id="generarReporte" class="btn btn-dark" type="submit">Generar reporte salud</button>
 
-                <div>
-                    <label for="genero">Género: </label>
-                </div>
-                <div class="box">
-                    <input type="radio" name="genero" value="masculino" checked />Masculino
-                    <input type="radio" name="genero" value="femenino" />Femenino
-                </div>
-
-                <!--<div class="box">
-                    <label for="fechaNacimiento">Fecha nacimiento: </label>
-                    <input type="text" name="fecha_nacimiento" id="fechaNacimiento" autocomplete="off" required />
-                </div>-->
-
-                <div class="box">
-                    <label for="nivel_actividad">Actividad física: </label>
-                </div>
-
-                <div class="box">
-                    <select name="nivel_actividad">
-                        <option value="1">Poco o ningún ejercicio</option>
-                        <option value="2">(1 - 3 dias a la semana)</option>
-                        <option value="3">(3 - 5 dias a la semana</option>
-                        <option value="4">(6 - 7 dias a la semana</option>
-                        <option value="5">(2 veces el día)</option>
-                    </select>
-                </div>
-
-
-
-                <button id="generarReporte" class="btn btn-dark" type="submit">Generar reporte salud</button>
-
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
+
+    </main><!-- Formulario para llevar a cabo una lectura -->
+
+
 </body>
 
 </html>

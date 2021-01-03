@@ -7,21 +7,22 @@ class Connection
     private const USERNAME = "root";
     private const PASSWORD = "root";
     private const DBNAME = "bdsalud";
+    protected $conn;
 
-    function conectar()
+    function __construct()
     {
 
         try {
 
-            $conn = new PDO(
+            $this->conn = new PDO(
                 "mysql:host=" . self::SERVERNAME . ";dbname=" . self::DBNAME,
                 self::USERNAME,
                 self::PASSWORD
             );
 
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            return $conn;
+
             
         } catch (PDOException $e) {
             echo "!Error! " . $e->getMessage();
