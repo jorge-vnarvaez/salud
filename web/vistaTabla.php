@@ -4,7 +4,6 @@ session_start();
 
 if (!isset($_SESSION["rut_s"])) {
     header("Location: login.php");
-    exit();
 }
 
 ?>
@@ -22,6 +21,7 @@ if (!isset($_SESSION["rut_s"])) {
 </head>
 
 <!-- Se esta cargando la funcion clasificar persona y los datos de la persona-->
+
 <body>
 
     <header>
@@ -29,15 +29,12 @@ if (!isset($_SESSION["rut_s"])) {
             <h3><span id="nombre_persona"></span>.<br /> La nueva lectura indica que: </h3>
             <ul class="barra">
                 <li>
-                    <img src="../web/img/lectura.png" />
                     <a href="misLecturas.php">Mis lecturas.</a>
                 </li>
                 <li>
-                    <img src="../web/img/config.png" />
                     <a href="formConfigCuenta.php">Configuración cuenta.</a>
                 </li>
                 <li>
-                    <img src="../web/img/exit.png" />
                     <a href="cerrarSesion.php">Cierra sesión</a>
                 </li>
 
@@ -45,8 +42,8 @@ if (!isset($_SESSION["rut_s"])) {
         </div>
     </header>
 
-    <div class="contenedor">
-        <div class="contenedor-indice">
+    <section>
+        <div class="contenedor contenedor-indice">
 
             <p>Su Índice de Masa Corporal es: <span id="clasi"></span></p>
 
@@ -90,13 +87,11 @@ if (!isset($_SESSION["rut_s"])) {
                     <td>>= 40.00</td>
                 </tr>
             </table>
-            <button type="button" class="btn btn-dark btn-icon">
-                <img src="../web/img/new.png" />
-                <a href="index.php">Nueva lectura</a>
-            </button>
+
+            <a class="btn btn-primary" href="index.php">Nueva lectura</a>
 
         </div>
-    </div>
+    </section>
 
 
 </body>

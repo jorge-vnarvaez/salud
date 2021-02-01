@@ -17,46 +17,26 @@ require("cookies.php");
 <head>
     <meta charset="UTF-8" />
     <title>Bienvenido/a </title>
-    <link rel="stylesheet" type="text/css" href="jquery/jquery-ui-1.12.1.custom/jquery-ui.css" />
+    <link rel="stylesheet" href="jquery/jquery-ui-1.12.1.custom/jquery-ui.css" />
     <script type="text/javascript" src="jquery/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="jquery/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="jquery/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="../web/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="../web/css/estilo.css" />
-    <script type="text/javascript" src="js/codigo.js"></script>
-    <script type="text/javascript" src="js/cargar.js"></script>
+    <link rel="stylesheet" href="../web/css/normalize.css" />
+    <link rel="stylesheet" href="../web/css/estilo.css" />
+    <script type="text/javascript" src="js/codigo.js" defer></script>
+    <script type="text/javascript" src="js/cargar.js" defer></script>
 </head>
 
 <!-- Aqui se cargan los datos de la persona -->
+
 <body>
 
-    <header>
-        <div class="contenedor contenedor-header">
-            <h3>Bienvenido/a <span id="nombre_persona"></span>. </h3>
-            <ul class="barra">
-                <li>
-                    <img src="../web/img/lectura.png" />
-                    <a href="misLecturas.php">Mis lecturas.</a>
-                </li>
-                <li>
-                    <img src="../web/img/config.png" />
-                    <a href="formConfigCuenta.php">Configuración cuenta.</a>
-                </li>
-                <li>
-                    <img src="../web/img/exit.png" />
-                    <a href="cerrarSesion.php">Cierra sesión</a>
-                </li>
+    <?php require("header.php"); ?>
 
-            </ul>
-        </div>
+    <section class="contenedor-cookies">
+        <div class="contenedor contenido-cookies">
 
-    </header><!-- Header, nombre persona y opciones de cuenta -->
-
-    <section class="contenedor-anterior">
-        <div class="contenedor contenido-anterior">
-            <h3 class="centrar-texto fw-300">Su última lectura indica: </h3>
-            <div class="anterior-texto">
-
+            <div class="iconos">
                 <div class="icon">
                     <p>Peso</p>
                     <img src="https://img.icons8.com/windows/64/000000/fat-man.png" />
@@ -87,29 +67,34 @@ require("cookies.php");
     </section><!-- Seccion de cookies -->
 
     <main>
-        <div class="contenedor">
-            <div class="contenedor-indice">
-                <h2>Nueva lectura</h2>
-                <form action="actionNuevaLectura.php" method="post">
-                    <div class="box">
+        <div class="contenedor contenedor-indice">
+            <h2>Nueva lectura</h2>
+            <form action="actionNuevaLectura.php" method="post">
+
+                <div class="box">
+                    <div class="inside-box">
                         <label for="peso_kg">Peso (Kg.): </label>
                         <input type="number" name="peso_kg" id="peso_kg" min="20" max="300" step="0.1" required />
                     </div>
                     <div id="slider_peso"></div>
+                </div><!-- Esta caja lleva separacion -->
 
-
-                    <div class="box">
+                <div class="box">
+                    <div class="inside-box">
                         <label for="estatura_mt">Estatura (Mts.): </label>
                         <input type="number" name="estatura_mt" id="estatura_mt" min="1.0" max="2" step="0.01" required />
                     </div>
                     <div id="slider_altura"></div>
+                </div><!-- Esta caja lleva separacion -->
 
-                    <div class="box">
+
+                <div class="box">
+                    <div>
                         <label for="nivel_actividad">Actividad física: </label>
                     </div>
 
-                    <div class="box">
-                        <select name="nivel_actividad">
+                    <div class="inside-box">
+                        <select class="w-100" name="nivel_actividad">
                             <option value="1">Poco o ningún ejercicio</option>
                             <option value="2">(1 - 3 dias a la semana)</option>
                             <option value="3">(3 - 5 dias a la semana</option>
@@ -117,12 +102,13 @@ require("cookies.php");
                             <option value="5">(2 veces el día)</option>
                         </select>
                     </div>
+                </div>
 
-                    <button id="generarReporte" class="btn btn-dark" type="submit">Generar reporte salud</button>
+                <button class="btn btn-primary" type="submit" id="generarReporte">Reporte</button>
 
-                </form>
-            </div>
+            </form>
         </div>
+
 
     </main><!-- Formulario para llevar a cabo una lectura -->
 

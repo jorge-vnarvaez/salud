@@ -12,8 +12,6 @@ $(document).ready(function () {
 
     $("#peso_kg").val($("#slider_peso").slider("value"));
 
-
-
     $("#slider_altura").slider({
         min: 1,
         max: 2,

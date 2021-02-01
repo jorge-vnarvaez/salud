@@ -1,3 +1,11 @@
+:root {
+    --primario: #f1c40f;
+    --secundario: #34495e;
+    --blanco: #ecf0f1;
+    --cyan: #3498db;
+    --red: #ec4646;
+}
+
 html {
     font-size: 62.5%;
     box-sizing: border-box;
@@ -8,10 +16,16 @@ html {
 }
 
 header {
-    background-color: #35A300;
-    height: 15vh;
+    background-color: var(--secundario);
+    height: 30vh;
     background-position: center center;
     background-size: cover;
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 15vh;
+    }
 }
 
 body {
@@ -23,100 +37,34 @@ body {
     margin: 0 auto;
 }
 
-.section {
-    margin-top: 2rem;
-}
-
 
 /**************** LOGIN *****************/
 
+
 .contenedor-login {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: #478A0C;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.contenido-login {
+    display: grid;
+    grid-template-rows: 7rem 15rem 5rem;
+    background-color: var(--secundario);
     color: white;
     padding: 2rem;
-    width: 40rem;
 }
 
 .login-header h3 {
-    margin-top: 0;
+    text-align: center;
+    margin: 0;
 }
 
-.login-content .box input {
-    max-width: 20rem;
-    width: 20rem;
+.login-content form {
+    display: grid;
+    grid-template-rows: 50% 50%;
 }
-
-.login-content .box label {
-    max-width: 8rem;
-    width: 8rem;
-}
-
-.login-footer .btn{
-    padding: 1rem 3rem; 
-}
-
-
-
-/******* NUEVOS USUARIOS *********/
-
-.contenedor-nuevo {
-    display: flex;
-    justify-content: center;
-}
-
-
-
-
-/*.contenido-nuevo form h4::before {
-    content: "";
-    display: block;
-    background-image: url("https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png");
-    background-position: center center;
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-}*/
-
-.contenedor-nuevo {
-    border: 2px solid #72E23C ;
-    max-width: 500px;
-    width: 500px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-}
-
-.contenido-nuevo .box {
-    margin-bottom: 2rem;
-}
-
-.contenido-nuevo h4 {
-    margin-top: 0;
-}
-
-.contenido-nuevo .box input[type=radio] {
-    margin-left: 2rem;
-}
-
-.contenedor-nuevo h4::after {
-    content: "";
-    display: block;
-    background-color: #35A300;
-    width: 140px;
-    height: 5px;
-}
-
-.footer-nuevo .btn {
-    margin-top: 1.2rem;
-    padding: 1rem 3rem;
-}
-
-
-
-
- 
 
 
 /************* HEADER ************/
@@ -124,58 +72,82 @@ body {
 .contenedor-header {
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     color: white;
+    padding: 0rem 3rem;
+}
+
+@media (min-width: 768px) {
+   .contenedor-header {
+       flex-direction: row;
+       justify-content: space-between;
+   }
 }
 
 .contenedor-header h3 {
     margin: 0;
-    padding: 2rem 0;
 }
 
 .barra {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
+
+@media (min-width: 768px) {
+    .barra {
+        flex-direction: row;
+        margin-right: 0;
+    }
+ }
 
 .barra li {
-    display: flex;
-    align-items: center;
+    display: inline;
+    padding: 1.2rem 0rem;
 }
 
-.barra li a{
-    margin-right: 2.5rem;
-    color: white;
-    text-decoration: none;
+.barra li:hover {
+    border-bottom: 1px solid var(--primario);
 }
 
-.barra img {
-    margin-right: .7rem;
-    width: 32px;
-    height: 32px;
+@media (min-width: 768px) {
+   .barra li {
+       margin-right: 2rem;
+   } 
 }
-
-
 
 
 
 /********** MIS LECTURAS **********/
 
+
 .contenedor-lecturas {
     display: flex;
     flex-direction: column;
-    width: 110rem;
+    width: 55%;
 }
 
 #tabla_lecturas {
     text-align: center;
-    width: 110rem;
+    width: 100%;
+    margin: 3rem 0rem;
+}
+
+@media (min-width: 768px) {
+    #tabla_lecturas {
+        margin: 0;
+    }
 }
 
 #tabla_lecturas td, th {
     padding: .5rem;
-    
+   
 }
 
 #tabla_lecturas tr:nth-child(even) {
@@ -183,66 +155,63 @@ body {
 }
 
 .contenedor-lecturas button{
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contenedor-lecturas button {
+        margin-bottom: 2rem;
+    }
 }
 
 .botones-lecturas {
     display: grid;
-    grid-template-columns: 10% 10%;
-    column-gap: 2rem;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 1fr);
 }
 
+@media (min-width: 768px) {
+    .botones-lecturas {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+    }
+}
 
-
-/********* INDICE ************/
+/********** INDICE - CLASIFICACION **********/
 
 .contenedor-indice {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 120rem;
 }
-
-.contenedor-indice .btn{
-    margin-top: 2rem;
-    padding: 1rem;
-}
-
-
-
-
 
 
 
 
 /*** CONTENEDORES ****/
 
-
 .box {
+    margin-bottom: 2rem;
+}
+
+.inside-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 34rem;
 }
 
-.box img {
-    width: 12px;
-    height: 12px;
-    margin-left: .5rem;
-}
-
-.box label {
+.inside-box label, .box label {
     display: inline-block;
     width: 20rem;
-}
-
-form div {
     margin-bottom: 1rem;
 }
 
+.box label {
+    width: 10rem;
+}
 
-.box input[type=number] {
+.inside-box input[type=number] {
    width: 65px;
    max-width: 65px;
    border-radius: 2rem;
@@ -252,29 +221,19 @@ form div {
 
 
 
-
-
-
-
-/********* MODIFICAR ***********/
+/********* MODIFICAR CUENTA ***********/
 
 
 .contenedor-modificar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 120rem;
+    margin-top: 3rem;
 }
 
 .contenedor-modificar .box {
     margin-bottom: 2rem;
 }
-
-.modificar-botones .btn {
-    padding: .7rem .3rem;
-    flex-basis: calc(33.3% - 1rem);
-}
-
 
 
 
@@ -299,21 +258,37 @@ span {
 
 /*************** COOKIES ***************/
 
-.contenedor-anterior {
-    width: 100%;
-    height: 23vh;
-    background-color: #72E23C;
-    padding: 1rem 1rem;
+.contenedor-cookies {
+    height: 45vh;
+    background-color: var(--primario);
 }
 
-.contenido-anterior h3{
-    margin: 0;
+@media (min-width: 768px) {
+    .contenedor-cookies {
+        height: 23vh;
+    }
 }
 
-.anterior-texto {
+.contenido-cookies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 55%;
+    height: 100%;
+}
+
+.iconos {
     display: grid;
     list-style-type: none;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10rem;
+
+}
+
+@media (min-width: 768px) {
+    .iconos {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .icon {
@@ -329,12 +304,14 @@ span {
 
 
 
-
-
 /********* UTILIDADES **********/
 
 .fw-300 {
     font-weight: 300;
+}
+
+.fw-700 {
+    font-weight: 700;
 }
 
 .centrar-texto {
@@ -346,62 +323,85 @@ label {
 }
 
 .modificar-botones {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    
+    display: grid;
 }
 
-.btn, .btn a{
+.btn {
+    margin: 1.5rem 0rem;
+    border: none;
+    border-radius: 3rem;
     color: white;
+    text-align: center;
     text-decoration: none;
-    border: 0;
-}
-
-
-.btn-dark {
-    background-color: #4AE300;
-}
-
-.btn-grey {
-    background-color: #81F916;
-}
-
-.btn-dd {
-    background-color: #70CB00;
-}
-
-.btn-rojo {
-    background-color: #DB0000;
-}
-
-.error {
-    color: #fff;
-}
-
-.error-f {
-   
     display: inline-block;
-    color: red;
-    margin-top: 0;   
+    padding: 1.4rem 4rem;
+    cursor: pointer;
 }
 
-.vacio {
-    width: 340px;
-    max-width: 340px;
+.btn-primary {
+    background-color: var(--cyan);
 }
 
-.btn-icon {
+.btn-blanco, .btn-blanco a{
+    background-color: var(--blanco);
+    color: #34495e;
+}
+
+.btn-red {
+    background-color: var(--red);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Considerar revision de estas hojas de estilo
+/* */
+/******* NUEVOS USUARIOS *********/
+
+.contenedor-nuevo {
     display: flex;
-    align-items: center;
-    padding: .5rem 1.3rem;
+    justify-content: center;
 }
 
-.btn-icon img {
-    width: 32px;
-    height: 32px;
-    padding: .4rem;
+/*.contenido-nuevo form h4::before {
+    content: "";
+    display: block;
+    background-image: url("https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png");
+    background-position: center center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}*/
+
+
+.contenido-nuevo .box {
+    margin-bottom: 2rem;
 }
+
+.contenido-nuevo h4 {
+    margin-top: 0;
+}
+
+.contenido-nuevo .box input[type=radio] {
+    margin-left: 2rem;
+}
+
+.contenedor-nuevo h4::after {
+    content: "";
+    display: block;
+    background-color: var(--primario);
+    width: 140px;
+    height: 5px;
+}
+
+
+
 
 
 

@@ -4,9 +4,9 @@ session_start();
 
 require("../src/view/client.php");
 
-$id_lectura =  $_REQUEST["id_lectura"];
+$id_lectura =  $_POST["id"];
 
-$cliente = new Client();
+/*$cliente = new Client();
 
 $exito = false;
 
@@ -17,9 +17,9 @@ switch($id_lectura) {
     default: 
         $exito = $cliente->eliminarLectura($id_lectura);
         break;
-}
+}*/
 
-echo $exito;
+echo $id_lectura;
 
 
 

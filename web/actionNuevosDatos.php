@@ -3,8 +3,6 @@
 include("../src/view/client.php");
 include("../src/vo/persona.php");
 
-
-
 $vacio = 0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

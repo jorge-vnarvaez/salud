@@ -31,15 +31,14 @@ if (isset($_REQUEST["existe"])) {
         </div>
     </header>
 
-    <div class="section">
-        <div class="contenedor-login contenedor">
+    <section class="contenedor-login">
+        <div class="contenedor contenido-login">
 
-            <div class="login-header">
-                <h3>Login</h3>
+            <div>
+                <h3>Iniciar sesión</h3>
             </div>
 
-            <div class="login-content">
-
+            <div class="contenido-formulario">
                 <form method="POST" action="procesarLogin.php">
                     <div class="box">
                         <label for="correo">Correo: </label>
@@ -49,19 +48,21 @@ if (isset($_REQUEST["existe"])) {
                         <label for="rut">Rut: </label>
                         <input type="password" name="rut" />
                     </div>
-                    <span class="error"><?php echo $msg ?></span>
+                    <!--<span class="error"><?php //echo $msg
+                                        ?></span> -->
 
-            </div>
+                    <input class="btn btn-blanco" type="submit" value="Entrar" />
 
-            <div class="login-footer">
-                <input class="btn btn-dd" type="submit" value="Entrar" />
-                <button class="btn btn-grey"><a href="nuevoUsuario.php" target="_blank">Registrarse</a></button>
 
                 </form>
             </div>
 
+            <div>
+                <p>¿No posee una cuenta? <a class="fw-700" href="nuevoUsuario.php" target="_blank">Registrese aquí</a></p>
+
+            </div>
         </div>
-    </div>
+    </section>
 
 
 </body>

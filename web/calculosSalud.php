@@ -1,7 +1,5 @@
 <?php
 
-
-
 function calcularIMC($altura, $peso)
 {
     $altura = pow($altura, 2);
@@ -12,13 +10,11 @@ function calcularIMC($altura, $peso)
 }
 
 
-
-
 function calcularTmb($persona)
 {
 
     $tmb = 0;
-   
+
     $edad = $persona->calcularEdad();
 
     // Version Miffin-St.Jeor 

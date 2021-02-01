@@ -45,5 +45,4 @@ setcookie($rut."/actividad", $resultados[1], time() + (3600 * 30), "/");
 | es enviado a la tabla de clasificacion */
 if($cliente->nuevaLectura($lectura)) {
     header("Location: vistaTabla.php");
-    exit();
 }
